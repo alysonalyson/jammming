@@ -2,7 +2,7 @@ import React from 'react';
 import TrackList from '../TrackList/TrackList.js';
 import './Playlist.css';
 
-export class Playlist extends React.Component {
+class Playlist extends React.Component {
   constructor(props) {
     super(props);
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -22,3 +22,4 @@ export class Playlist extends React.Component {
     );
   }
 }
+export default Playlist;
