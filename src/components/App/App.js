@@ -26,33 +26,33 @@ class App extends React.Component {
     } else {
       let tracks = this.state.playlistTracks;
       tracks.push(track);
-      this.setState({playlistTracks: tracks});
+      this.setState( {playlistTracks: tracks} );
     }
   }
 
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
     let newTracks = tracks.filter(savedTrack => savedTrack.id === track.id);
-    this.setState({playListTracks: newTracks});
+    this.setState( {playListTracks: newTracks}) ;
   }
 
   updatePlaylistName(name) {
-    this.setState({playlistName: name});
+    this.setState( {playlistName: name} );
   }
 
   savePlaylist() {
     let trackURIs= this.state.playlistTracks.map(track => track.uri);
     let playlistName = this.state.playlistName;
     Spotify.savePlaylist(playlistName, trackURIs);
-    this.setState ({
+    this.setState ( {
       playlistName: 'New Playlist',
       playlistTracks: []
-    })
+    } )
   }
 
   search(term) {
     Spotify.search(term).then(tracks => {
-      this.setState({searchResults: tracks});
+      this.setState( {searchResults: tracks} );
     });
     console.log(term);
   }
