@@ -11,9 +11,9 @@ const Spotify = {
     if(accessToken) {
       return accessToken;
     } else if (token && expiry) {
-      accessToken = token;
-      expiresIn = expiry;
-      window.setTimeout(() => accessToken = '', expiresIn * 1000);
+      accessToken = token[1];
+      expiresIn = expiry[1];
+      window.setTimeout(() => accessToken = null, expiresIn * 1000);
       window.history.pushState('Access Token', null, '/');
       return accessToken;
     } else {
@@ -33,7 +33,7 @@ const Spotify = {
     }, networkError => console.log(networkError.message)
     ).then(jsonResponse => {
       if(jsonResponse.tracks) {
-        return jsonResponse.tracks.map(track => ({
+        return jsonResponse.tracks.items.map(track => ({
           id: track.id,
           name: track.name,
           artist: track.artists[0].name,
