@@ -32,7 +32,7 @@ class App extends React.Component {
 
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
-    let filteredTracks = tracks.filter(savedTrack => track.id !== savedTrack.id);
+    const filteredTracks = tracks.filter(cutTrack => track.id !== cutTrack.id);
     this.setState( {playlistTracks: filteredTracks} ) ;
     console.log(filteredTracks);
   }
