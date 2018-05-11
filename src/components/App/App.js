@@ -32,7 +32,7 @@ class App extends React.Component {
 
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
-    const filteredTracks = tracks.filter(savedTrack => savedTrack.id !== track.id);
+    const filteredTracks = tracks.filter(savedTrack => track.id !== savedTrack.id);
     this.setState( {playListTracks: filteredTracks} ) ;
   }
 
@@ -54,7 +54,6 @@ class App extends React.Component {
     Spotify.search(term).then(tracks => {
       this.setState( {searchResults: tracks} );
     });
-    console.log(term);
   }
 
   render() {
