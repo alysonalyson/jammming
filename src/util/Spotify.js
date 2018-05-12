@@ -50,7 +50,7 @@ const Spotify = {
   savePlaylist(playlistName, trackURIs) {
     this.getAccessToken();
 
-    const headers = { Authorization: `Bearer ${accessToken}` };
+    const headers = { Authorization: `Bearer ${accessToken}`, Content_Type: 'application/json'};
     let userID;
     let playlistID;
 
