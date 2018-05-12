@@ -20,7 +20,7 @@ const Spotify = {
       const scope = 'user-read-private user-read-email ' +
      'playlist-modify-private playlist-read-private ' +
      'playlist-modify-public playlist-read-collaborative';
-      window.location= `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&redirect_uri=${redirectURI}$scope=${scope}`;
+      window.location= `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&redirect_uri=${redirectURI}&scope=${scope}`;
     }
   },
 
