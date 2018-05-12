@@ -17,7 +17,10 @@ const Spotify = {
       window.history.pushState('Access Token', null, '/');
       return accessToken;
     } else {
-      window.location= `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&redirect_uri=${redirectURI}`;
+      const scope = 'user-read-private user-read-email ' +
+     'playlist-modify-private playlist-read-private ' +
+     'playlist-modify-public playlist-read-collaborative';
+      window.location= `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&redirect_uri=${redirectURI}$scope=${scope}`;
     }
   },
 
@@ -46,7 +49,7 @@ const Spotify = {
 
   savePlaylist(playlistName, trackURIs) {
     this.getAccessToken();
-    
+
     const headers = { Authorization: `Bearer ${accessToken}` };
     let userID;
     let playlistID;
@@ -67,7 +70,7 @@ const Spotify = {
           return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
             headers: headers,
             method: 'POST',
-            body: JSON.stringify({playlistName: 'playlistName'})
+            body: JSON.stringify({name: playlistName})
           }).then(response => {
             if(response.ok) {
               return response.json();
