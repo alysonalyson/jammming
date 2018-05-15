@@ -6,6 +6,9 @@ let expiresIn;
 
 const Spotify = {
   getAccessToken() {
+    const scope = 'user-read-private user-read-email ' +
+   'playlist-modify-private playlist-read-private ' +
+   'playlist-modify-public playlist-read-collaborative';
     let token = window.location.href.match(/access_token=([^&]*)/);
     let expiry = window.location.href.match(/expires_in=([^&]*)/);
     if(accessToken) {
@@ -17,9 +20,6 @@ const Spotify = {
       window.history.pushState('Access Token', null, '/');
       return accessToken;
     } else {
-      const scope = 'user-read-private user-read-email ' +
-     'playlist-modify-private playlist-read-private ' +
-     'playlist-modify-public playlist-read-collaborative';
       window.location= `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&redirect_uri=${redirectURI}&scope=${scope}`;
     }
   },
