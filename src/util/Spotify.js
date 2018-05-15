@@ -65,7 +65,7 @@ const Spotify = {
           throw new Error('Request failed');
         }, networkError => console.log(networkError.message)
         ).then(jsonResponse => {
-          return userID = jsonResponse.id;
+          userID = jsonResponse.id;
         }).then(() => {
           return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`, {
             headers: headers,
