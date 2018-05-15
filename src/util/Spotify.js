@@ -6,9 +6,7 @@ let expiresIn;
 
 const Spotify = {
   getAccessToken() {
-    const scope = 'user-read-private user-read-email ' +
-   'playlist-modify-private playlist-read-private ' +
-   'playlist-modify-public playlist-read-collaborative';
+    const scope = 'playlist-modify-public';
     let token = window.location.href.match(/access_token=([^&]*)/);
     let expiry = window.location.href.match(/expires_in=([^&]*)/);
     if(accessToken) {
