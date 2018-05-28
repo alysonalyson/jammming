@@ -10,26 +10,26 @@ html {
 
 h1 {
   padding: .77rem 0;
-  background-color: #010c3f;
+  background-color: #138D75;
   text-align: center;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.88rem;
+  font-family: 'Monoton', sans-serif;
+  font-size: 1.95rem;
   color: #fff;
 }
 
 h1 .highlight {
-  color: #6c41ec;
+  color: #82E0AA;
 }
 
 h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.55rem;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.6rem;
 }
 
 .App {
   height: 100%;
   padding: 0 17% 10% 17%;
-  background-image: url('./background_photo_desktop.jpg');
+  background-image: url('./records.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

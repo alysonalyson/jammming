@@ -50,7 +50,6 @@ const Spotify = {
 
    const headers = { Authorization: `Bearer ${accessToken}` };
    let userID;
-   let playlistID;
 
    if(name && trackURIs){
      return fetch('https://api.spotify.com/v1/me', {headers: headers}
