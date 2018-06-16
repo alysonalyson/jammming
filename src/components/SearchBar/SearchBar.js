@@ -7,7 +7,6 @@ class SearchBar extends React.Component {
     this.state = {term : ''};
     this.handleSearch = this.handleSearch.bind(this);
     this.handleTermChange = this.handleTermChange.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   handleSearch() {
@@ -18,11 +17,7 @@ class SearchBar extends React.Component {
       this.setState( {term: event.target.value} );
   }
 
-  handleKeyPress(event)  {
-    if(event.keyCode === 'Enter') {
-      this.handleSearch();
-    }
-  }
+}
 
   render() {
     return (
@@ -30,7 +25,7 @@ class SearchBar extends React.Component {
         <input
           placeholder="Enter A Song, Album, or Artist"
           onChange={this.handleTermChange}
-          onKeyPress= {this.handleKeyPress} />
+          />
         <a onClick= {this.handleSearch}>SEARCH</a>
       </div>
     );
